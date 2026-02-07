@@ -1,9 +1,14 @@
 import datetime
+import os
 import speech_recognition
 
 sr = speech_recognition.Recognizer()
 time_start = datetime.datetime.now()
 file_name = ('timecodes/time_code_{}.txt').format(datetime.datetime.today().strftime("%d.%m.%Y"))
+
+if os.path.exists(file_name) == False:
+    os.mkdir('timecodes')
+
 with speech_recognition.Microphone() as mic:
     sr.adjust_for_ambient_noise(source=mic, duration=0.5)
 

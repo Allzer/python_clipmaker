@@ -5,8 +5,9 @@ import speech_recognition
 sr = speech_recognition.Recognizer()
 time_start = datetime.datetime.now()
 file_name = ('timecodes/time_code_{}.txt').format(datetime.datetime.today().strftime("%d.%m.%Y"))
+file_dir = 'timecodes'
 
-if os.path.exists(file_name) == False:
+if os.path.exists(file_dir) == False:
     os.mkdir('timecodes')
 
 with speech_recognition.Microphone() as mic:
